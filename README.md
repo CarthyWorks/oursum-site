@@ -2,7 +2,7 @@
 
 Static landing page for [Oursum](https://github.com/CarthyWorks/oursum) — a private, offline-first expense tracker for macOS.
 
-🌐 **Live site:** https://carthyworks.github.io/oursum-site/
+🌐 **Live site:** https://oursum.app
 
 ## What's in here
 
