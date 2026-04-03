@@ -59,10 +59,10 @@
         "@type": "SoftwareApplication",
         "name": "Oursum",
         "url": "https://carthyworks.github.io/oursum-site/",
-        "downloadUrl": "https://github.com/CarthyWorks/oursum/releases/latest/download/stable-macos-arm64-Oursum.dmg",
+        "downloadUrl": "https://github.com/CarthyWorks/oursum/releases/download/v0.1.0/Oursum-beta-0.1.0.dmg",
         "operatingSystem": "macOS 13 Ventura or later",
         "applicationCategory": "FinanceApplication",
-        "softwareVersion": "0.0.1",
+        "softwareVersion": "0.1.0",
         "releaseNotes": "https://github.com/CarthyWorks/oursum/releases",
         "license": "https://github.com/CarthyWorks/oursum/blob/main/LICENSE",
         "description": "Oursum is a free, private, offline-first expense tracker for macOS. Import bank CSV exports, auto-categorize transactions, review spending reports, and split household costs — no cloud, no account, no subscription.",
@@ -1183,8 +1183,8 @@
   <div class="container">
     <div class="download-box">
       <h2 class="download-box__title" data-t="download.title">Download Oursum</h2>
-      <p class="download-box__meta" data-t="download.meta">v0.0.1 Public Beta · macOS · Apple Silicon (ARM64) · Free</p>
-      <a class="download-box__btn" href="https://github.com/CarthyWorks/oursum/releases/latest/download/stable-macos-arm64-Oursum.dmg" id="download-btn">
+      <p class="download-box__meta" data-t="download.meta">v0.1.0 Public Beta · macOS · Apple Silicon (ARM64) · Free</p>
+      <a class="download-box__btn" href="https://github.com/CarthyWorks/oursum/releases/download/v0.1.0/Oursum-beta-0.1.0.dmg" id="download-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
@@ -1329,7 +1329,7 @@ const TRANSLATIONS = {
     "how.step4.title":     "Settle",
     "how.step4.body":      "Open the split calculator, confirm contributors and proportions, get the settlement figures. Done.",
     "download.title":      "Download Oursum",
-    "download.meta":       "v0.0.1 Public Beta · macOS · Apple Silicon (ARM64) · Free",
+    "download.meta":       "v0.1.0 Public Beta · macOS · Apple Silicon (ARM64) · Free",
     "download.btn":        "Download .dmg for Mac",
     "download.note.releases": "All releases on",
     "download.unsigned.title": "This build is unsigned and not notarized.",
@@ -1407,7 +1407,7 @@ const TRANSLATIONS = {
     "how.step4.title":     "Salda",
     "how.step4.body":      "Apri il calcolatore di divisione, conferma i contributori e le proporzioni, ottieni i totali. Fatto.",
     "download.title":      "Scarica Oursum",
-    "download.meta":       "v0.0.1 Beta pubblica · macOS · Apple Silicon (ARM64) · Gratuito",
+    "download.meta":       "v0.1.0 Beta pubblica · macOS · Apple Silicon (ARM64) · Gratuito",
     "download.btn":        "Scarica il .dmg per Mac",
     "download.note.releases": "Tutte le versioni su",
     "download.unsigned.title": "Questa build non è firmata né notarizzata.",
@@ -1485,7 +1485,7 @@ const TRANSLATIONS = {
     "how.step4.title":     "Abrechnen",
     "how.step4.body":      "Kostenteiler öffnen, Beitragende und Anteile bestätigen, Abrechnungsbeträge erhalten. Fertig.",
     "download.title":      "Oursum herunterladen",
-    "download.meta":       "v0.0.1 Öffentliche Beta · macOS · Apple Silicon (ARM64) · Kostenlos",
+    "download.meta":       "v0.1.0 Öffentliche Beta · macOS · Apple Silicon (ARM64) · Kostenlos",
     "download.btn":        "DMG für Mac herunterladen",
     "download.note.releases": "Alle Versionen auf",
     "download.unsigned.title": "Dieser Build ist nicht signiert und nicht notarisiert.",
@@ -1563,7 +1563,7 @@ const TRANSLATIONS = {
     "how.step4.title":     "Régler",
     "how.step4.body":      "Ouvrez le calculateur, confirmez les contributeurs et proportions, obtenez les montants. Terminé.",
     "download.title":      "Télécharger Oursum",
-    "download.meta":       "v0.0.1 Bêta publique · macOS · Apple Silicon (ARM64) · Gratuit",
+    "download.meta":       "v0.1.0 Bêta publique · macOS · Apple Silicon (ARM64) · Gratuit",
     "download.btn":        "Télécharger le .dmg pour Mac",
     "download.note.releases": "Toutes les versions sur",
     "download.unsigned.title": "Cette version n'est pas signée ni notarisée.",
@@ -1641,7 +1641,7 @@ const TRANSLATIONS = {
     "how.step4.title":     "Liquidar",
     "how.step4.body":      "Abre la calculadora de división, confirma los contribuyentes y proporciones, obtén las cifras de liquidación. Listo.",
     "download.title":      "Descargar Oursum",
-    "download.meta":       "v0.0.1 Beta pública · macOS · Apple Silicon (ARM64) · Gratis",
+    "download.meta":       "v0.1.0 Beta pública · macOS · Apple Silicon (ARM64) · Gratis",
     "download.btn":        "Descargar .dmg para Mac",
     "download.note.releases": "Todas las versiones en",
     "download.unsigned.title": "Esta versión no está firmada ni notarizada.",
@@ -1707,6 +1707,20 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(current === "mountain" ? "seaside" : "mountain");
   });
 });
+
+// Auto-resolve latest .dmg from GitHub Releases API
+(function () {
+  fetch('https://api.github.com/repos/CarthyWorks/oursum/releases/latest')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var dmg = (data.assets || []).find(function (a) { return a.name.endsWith('.dmg'); });
+      if (dmg) {
+        var btn = document.getElementById('download-btn');
+        if (btn) btn.href = dmg.browser_download_url;
+      }
+    })
+    .catch(function () {}); // keep static fallback on error
+})();
 </script>
 
 </body>
