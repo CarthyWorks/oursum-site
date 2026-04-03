@@ -38,44 +38,48 @@
 
   <!-- JSON-LD structured data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://oursum.app/#website",
-        "url": "https://oursum.app/",
-        "name": "Oursum",
-        "description": "Private, offline-first expense tracker for macOS.",
-        "publisher": { "@id": "https://oursum.app/#organization" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://oursum.app/#organization",
-        "name": "CarthyWorks",
-        "url": "https://github.com/CarthyWorks"
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Oursum",
-        "url": "https://oursum.app/",
-        "downloadUrl": "https://github.com/CarthyWorks/oursum/releases/download/v0.1.0/Oursum-beta-0.1.0.dmg",
-        "operatingSystem": "macOS 13 Ventura or later",
-        "applicationCategory": "FinanceApplication",
-        "softwareVersion": "0.1.0",
-        "releaseNotes": "https://github.com/CarthyWorks/oursum/releases",
-        "license": "https://github.com/CarthyWorks/oursum/blob/main/LICENSE",
-        "description": "Oursum is a free, private, offline-first expense tracker for macOS. Import bank CSV exports, auto-categorize transactions, review spending reports, and split household costs — no cloud, no account, no subscription.",
-        "image": "https://oursum.app/icon_128x128.png",
-        "author": { "@id": "https://oursum.app/#organization" },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://oursum.app/#website",
+      "url": "https://oursum.app/",
+      "name": "Oursum",
+      "description": "Private, offline-first expense tracker for macOS.",
+      "publisher": {
+        "@id": "https://oursum.app/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://oursum.app/#organization",
+      "name": "CarthyWorks",
+      "url": "https://github.com/CarthyWorks"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Oursum",
+      "url": "https://oursum.app/",
+      "downloadUrl": "https://github.com/CarthyWorks/oursum/releases/download/v0.1.2/Oursum-beta-0.1.2.dmg",
+      "operatingSystem": "macOS 13 Ventura or later",
+      "applicationCategory": "FinanceApplication",
+      "softwareVersion": "0.1.2",
+      "releaseNotes": "https://github.com/CarthyWorks/oursum/releases",
+      "license": "https://github.com/CarthyWorks/oursum/blob/main/LICENSE",
+      "description": "Oursum is a free, private, offline-first expense tracker for macOS. Import bank CSV exports, auto-categorize transactions, review spending reports, and split household costs — no cloud, no account, no subscription.",
+      "image": "https://oursum.app/icon_128x128.png",
+      "author": {
+        "@id": "https://oursum.app/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  ]
+}
   </script>
   <style>
     /* ============================================================
@@ -1183,7 +1187,7 @@
   <div class="container">
     <div class="download-box">
       <h2 class="download-box__title" data-t="download.title">Download Oursum</h2>
-      <p class="download-box__meta" data-t="download.meta">v0.1.0 Public Beta · macOS · Apple Silicon (ARM64) · Free</p>
+      <p class="download-box__meta" data-t="download.meta">v0.1.2 Public Beta · macOS · Apple Silicon (ARM64) · Free</p>
       <a class="download-box__btn" href="https://github.com/CarthyWorks/oursum/releases/download/v0.1.0/Oursum-beta-0.1.0.dmg" id="download-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
