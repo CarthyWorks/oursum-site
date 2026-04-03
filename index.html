@@ -1708,19 +1708,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Auto-resolve latest .dmg from GitHub Releases API
-(function () {
-  fetch('https://api.github.com/repos/CarthyWorks/oursum/releases/latest')
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      var dmg = (data.assets || []).find(function (a) { return a.name.endsWith('.dmg'); });
-      if (dmg) {
-        var btn = document.getElementById('download-btn');
-        if (btn) btn.href = dmg.browser_download_url;
-      }
-    })
-    .catch(function () {}); // keep static fallback on error
-})();
+// Release info is injected at build time by CI. No client-side fetch to preserve SEO and reliability.
 </script>
 
 </body>
