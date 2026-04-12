@@ -62,7 +62,7 @@
       "name": "Oursum",
       "url": "https://oursum.app/",
       "downloadUrl": "https://github.com/CarthyWorks/oursum/releases/download/v0.1.4/Oursum-beta-0.1.4-macos-arm64.dmg",
-      "operatingSystem": "macOS 13 or later, Windows 10 or later",
+      "operatingSystem": "macOS 13 or later (Apple Silicon only), Windows 10 or later",
       "applicationCategory": "FinanceApplication",
       "softwareVersion": "0.1.4",
       "releaseNotes": "https://github.com/CarthyWorks/oursum/releases",
@@ -1242,11 +1242,6 @@
           <span class="platform-tab__os">Mac</span>
           <span class="platform-tab__arch" data-t="platform.mac-arm.arch">Apple Silicon</span>
         </button>
-        <button class="platform-tab" role="tab" data-platform="mac-intel">
-          <span class="platform-tab__icon">🍎</span>
-          <span class="platform-tab__os">Mac</span>
-          <span class="platform-tab__arch" data-t="platform.mac-intel.arch">Intel</span>
-        </button>
         <button class="platform-tab" role="tab" data-platform="win">
           <span class="platform-tab__icon">🪟</span>
           <span class="platform-tab__os">Windows</span>
@@ -1263,25 +1258,6 @@
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
           <span data-t="download.btn.mac-arm">Download .dmg — Apple Silicon</span>
-        </a>
-        <div class="unsigned-warning">
-          <span class="unsigned-warning__icon">⚠️</span>
-          <div class="unsigned-warning__text">
-            <strong data-t="download.unsigned.title">This build is unsigned and not notarized.</strong>
-            <span data-t="download.unsigned.body">macOS will block it on first launch. To open it: right-click (or Control-click) the app and choose <em>Open</em>, then confirm in the dialog. This is a known limitation of the beta — code signing is planned for a future release.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mac Intel panel -->
-      <div class="platform-panel" data-panel="mac-intel" hidden>
-        <a class="download-box__btn" href="https://github.com/CarthyWorks/oursum/releases/download/v0.1.4/Oursum-beta-0.1.4-mac-x64.dmg">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          <span data-t="download.btn.mac-intel">Download .dmg — Intel (x64)</span>
         </a>
         <div class="unsigned-warning">
           <span class="unsigned-warning__icon">⚠️</span>
@@ -1309,7 +1285,7 @@
         <a href="https://github.com/CarthyWorks/oursum/releases" target="_blank" rel="noopener">GitHub Releases</a>.
       </p>
       <div class="sysreq">
-        <div class="sysreq-item" data-req="mac-arm mac-intel">
+        <div class="sysreq-item" data-req="mac-arm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           <span data-t="req.os.mac">macOS 13 Ventura or later</span>
         </div>
@@ -1320,10 +1296,6 @@
         <div class="sysreq-item" data-req="mac-arm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
           <span data-t="req.arch.mac-arm">Apple Silicon (M1 or later)</span>
-        </div>
-        <div class="sysreq-item" data-req="mac-intel">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
-          <span data-t="req.arch.mac-intel">Intel x64</span>
         </div>
         <div class="sysreq-item" data-req="win">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
@@ -1448,10 +1420,8 @@ const TRANSLATIONS = {
     "download.title":      "Download Oursum",
     "download.meta":       "v0.1.4 Public Beta · macOS & Windows · Free",
     "platform.mac-arm.arch":  "Apple Silicon",
-    "platform.mac-intel.arch": "Intel",
     "platform.win.arch":   "64-bit",
     "download.btn.mac-arm":  "Download .dmg — Apple Silicon",
-    "download.btn.mac-intel": "Download .dmg — Intel (x64)",
     "download.btn.win":     "Download .exe — Windows 64-bit",
     "download.note.releases": "All releases on",
     "download.unsigned.title": "This build is unsigned and not notarized.",
@@ -1459,7 +1429,6 @@ const TRANSLATIONS = {
     "req.os.mac":           "macOS 13 Ventura or later",
     "req.os.win":           "Windows 10 or later",
     "req.arch.mac-arm":     "Apple Silicon (M1 or later)",
-    "req.arch.mac-intel":   "Intel x64",
     "req.arch.win":         "64-bit (x64 / ARM64)",
     "req.size":            "~15 MB",
     "footer.releases":     "Releases",
@@ -1534,10 +1503,8 @@ const TRANSLATIONS = {
     "download.title":      "Scarica Oursum",
     "download.meta":       "v0.1.4 Beta pubblica · macOS & Windows · Gratuito",
     "platform.mac-arm.arch":  "Apple Silicon",
-    "platform.mac-intel.arch": "Intel",
     "platform.win.arch":   "64-bit",
     "download.btn.mac-arm":  "Scarica .dmg — Apple Silicon",
-    "download.btn.mac-intel": "Scarica .dmg — Intel (x64)",
     "download.btn.win":     "Scarica .exe — Windows 64-bit",
     "download.note.releases": "Tutte le versioni su",
     "download.unsigned.title": "Questa build non è firmata né notarizzata.",
@@ -1545,7 +1512,6 @@ const TRANSLATIONS = {
     "req.os.mac":           "macOS 13 Ventura o successivo",
     "req.os.win":           "Windows 10 o successivo",
     "req.arch.mac-arm":     "Apple Silicon (M1 o successivi)",
-    "req.arch.mac-intel":   "Intel x64",
     "req.arch.win":         "64-bit (x64 / ARM64)",
     "req.size":            "~15 MB",
     "footer.releases":     "Versioni",
@@ -1620,10 +1586,8 @@ const TRANSLATIONS = {
     "download.title":      "Oursum herunterladen",
     "download.meta":       "v0.1.4 Öffentliche Beta · macOS & Windows · Kostenlos",
     "platform.mac-arm.arch":  "Apple Silicon",
-    "platform.mac-intel.arch": "Intel",
     "platform.win.arch":   "64-Bit",
     "download.btn.mac-arm":  "DMG herunterladen — Apple Silicon",
-    "download.btn.mac-intel": "DMG herunterladen — Intel (x64)",
     "download.btn.win":     "EXE herunterladen — Windows 64-Bit",
     "download.note.releases": "Alle Versionen auf",
     "download.unsigned.title": "Dieser Build ist nicht signiert und nicht notarisiert.",
@@ -1631,7 +1595,6 @@ const TRANSLATIONS = {
     "req.os.mac":           "macOS 13 Ventura oder neuer",
     "req.os.win":           "Windows 10 oder neuer",
     "req.arch.mac-arm":     "Apple Silicon (M1 oder neuer)",
-    "req.arch.mac-intel":   "Intel x64",
     "req.arch.win":         "64-Bit (x64 / ARM64)",
     "req.size":            "~15 MB",
     "footer.releases":     "Versionen",
@@ -1706,10 +1669,8 @@ const TRANSLATIONS = {
     "download.title":      "Télécharger Oursum",
     "download.meta":       "v0.1.4 Bêta publique · macOS & Windows · Gratuit",
     "platform.mac-arm.arch":  "Apple Silicon",
-    "platform.mac-intel.arch": "Intel",
     "platform.win.arch":   "64 bits",
     "download.btn.mac-arm":  "Télécharger .dmg — Apple Silicon",
-    "download.btn.mac-intel": "Télécharger .dmg — Intel (x64)",
     "download.btn.win":     "Télécharger .exe — Windows 64 bits",
     "download.note.releases": "Toutes les versions sur",
     "download.unsigned.title": "Cette version n'est pas signée ni notarisée.",
@@ -1717,7 +1678,6 @@ const TRANSLATIONS = {
     "req.os.mac":           "macOS 13 Ventura ou ultérieur",
     "req.os.win":           "Windows 10 ou ultérieur",
     "req.arch.mac-arm":     "Apple Silicon (M1 ou ultérieur)",
-    "req.arch.mac-intel":   "Intel x64",
     "req.arch.win":         "64 bits (x64 / ARM64)",
     "req.size":            "~15 Mo",
     "footer.releases":     "Versions",
@@ -1792,10 +1752,8 @@ const TRANSLATIONS = {
     "download.title":      "Descargar Oursum",
     "download.meta":       "v0.1.4 Beta pública · macOS & Windows · Gratis",
     "platform.mac-arm.arch":  "Apple Silicon",
-    "platform.mac-intel.arch": "Intel",
     "platform.win.arch":   "64 bits",
     "download.btn.mac-arm":  "Descargar .dmg — Apple Silicon",
-    "download.btn.mac-intel": "Descargar .dmg — Intel (x64)",
     "download.btn.win":     "Descargar .exe — Windows 64 bits",
     "download.note.releases": "Todas las versiones en",
     "download.unsigned.title": "Esta versión no está firmada ni notarizada.",
@@ -1803,7 +1761,6 @@ const TRANSLATIONS = {
     "req.os.mac":           "macOS 13 Ventura o posterior",
     "req.os.win":           "Windows 10 o posterior",
     "req.arch.mac-arm":     "Apple Silicon (M1 o posterior)",
-    "req.arch.mac-intel":   "Intel x64",
     "req.arch.win":         "64 bits (x64 / ARM64)",
     "req.size":            "~15 MB",
     "footer.releases":     "Versiones",
